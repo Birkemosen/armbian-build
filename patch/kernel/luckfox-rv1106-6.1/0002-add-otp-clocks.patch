@@ -1,0 +1,20 @@
+diff --git a/arch/arm/boot/dts/rv1106.dtsi b/arch/arm/boot/dts/rv1106.dtsi
+index c5fe17efa3ea..e717c2b972f7 100644
+--- a/arch/arm/boot/dts/rv1106.dtsi
++++ b/arch/arm/boot/dts/rv1106.dtsi
+@@ -755,10 +755,11 @@ otp: otp@ff3d0000 {
+ 		compatible = "rockchip,rv1106-otp";
+ 		reg = <0xff3d0000 0x4000>;
+		#address-cells = <1>;
+		#size-cells = <1>;
+-		clocks = <&cru CLK_USER_OTPC_NS>, <&cru CLK_SBPI_OTPC_NS>,
+-			 <&cru PCLK_OTPC_NS>, <&cru PCLK_OTP_MASK>;
+-		clock-names = "usr", "sbpi", "apb", "phy";
++		clocks = <&cru CLK_USER_OTPC_NS>, <&cru CLK_SBPI_OTPC_NS>,
++			 <&cru PCLK_OTPC_NS>, <&cru PCLK_OTP_MASK>,
++			 <&cru CLK_OTPC_ARB>, <&cru CLK_PMC_OTP>;
++		clock-names = "usr", "sbpi", "apb", "phy", "arb", "pmc";
+ 		resets = <&cru SRST_USER_OTPC_NS>, <&cru SRST_SBPI_OTPC_NS>,
+ 			 <&cru SRST_P_OTPC_NS>, <&cru SRST_P_OTP_MASK>,
+ 			 <&cru SRST_OTPC_ARB>, <&cru SRST_PMC_OTP>;
+--

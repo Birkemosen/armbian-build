@@ -1,0 +1,32 @@
+From: Armbian Build System <build@armbian.com>
+Date: Fri Aug 29 15:30:00 2025 +0000
+Subject: [PATCH] fix: cmd_process function signature mismatch
+
+Fix the conflicting function declaration in command.h to match the
+implementation in command.c. The header declared int return type while
+the implementation uses enum command_ret_t return type.
+
+This resolves the compilation error:
+"conflicting types for 'cmd_process' due to enum/integer mismatch"
+
+Signed-off-by: Armbian Build System <build@armbian.com>
+---
+ include/command.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/include/command.h b/include/command.h
+index 2687dce..a1b2c3d 100644
+--- a/include/command.h
++++ b/include/command.h
+@@ -138,7 +138,7 @@ * @param ticks		If ticks is not null, this function set it to the
+  *			number of ticks the command took to complete.
+  * @return 0 if the command succeeded, 1 if it failed
+  */
+-int cmd_process(int flag, int argc, char * const argv[],
+-			       int *repeatable, unsigned long *ticks);
++enum command_ret_t cmd_process(int flag, int argc, char * const argv[],
++			       int *repeatable, unsigned long *ticks);
+
+ void fixup_cmdtable(cmd_tbl_t *cmdtp, int size);
+-- 
+2.25.1

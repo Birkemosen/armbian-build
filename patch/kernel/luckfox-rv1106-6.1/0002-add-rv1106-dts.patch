@@ -1,0 +1,10 @@
+diff --git a/arch/arm/boot/dts/Makefile b/arch/arm/boot/dts/Makefile
+index c5fe17efa3ea..8490fde62e06 100644
+--- a/arch/arm/boot/dts/Makefile
++++ b/arch/arm/boot/dts/Makefile
+@@ -1170,3 +1170,4 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += \
+ 	rv1106g-uvc-demo-v10-spi-nor.dtb \
++	rv1106g-luckfox-pico-ultra-w.dtb \
+ 	rv1108-elgin-r1.dtb \
+ 	rv1108-evb.dtb \
+--
